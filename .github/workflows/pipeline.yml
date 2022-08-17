@@ -38,7 +38,7 @@ jobs:
         with:
           command: npm run test:e2e
           start: npm start
-          wait-on: http://localhost:5000
+          wait-on: http://localhost:3000
 
   build:
     if: ${{!contains(github.event.commits, '#skip')}} && ${{ github.event_name == 'push' }} # needs to be conditional on #skip comment
