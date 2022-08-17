@@ -20,13 +20,14 @@
     "dev": "ts-node-dev ./src/index.ts",
     "eslint": "eslint --ext .ts .",
     "server": "node build/src/index.js",
-    "start": "serve -s build",
+    "start": "concurrently \"serve -s build\" \"npm run server\"",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.3.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "uuid": "^8.3.2"
