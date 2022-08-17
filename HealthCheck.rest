@@ -1,0 +1,13 @@
+POST http://localhost:3001/api/patients/d2773822-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+    "UserId": "d2773822-f723-11e9-8f0b-362b9e155667",
+    "entry" : {
+        "date": "20456-10-05",
+        "specialist": "future MD House",
+        "type": "HealthCheck",
+        "description": "has been dead over a 50 years",
+        "healthCheckRating": 1
+        }
+}
