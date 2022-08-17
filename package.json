@@ -20,7 +20,7 @@
     "dev": "ts-node-dev ./src/index.ts",
     "eslint": "eslint --ext .ts .",
     "server": "node build/src/index.js",
-    "start": "concurrently \"serve -s build\" \"npm run server\"",
+    "start": "concurrently \"npm run server\" \"serve -s build\"",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run"
   },
