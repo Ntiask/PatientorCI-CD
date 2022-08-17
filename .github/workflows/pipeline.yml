@@ -35,7 +35,7 @@ jobs:
           wait-on: http://localhost:3000
 
   build:
-    if: ${{!contains(github.event.commits, '#skip')}} && ${{ github.event_name == 'push' }} # needs to be conditional on #skip comment
+    if: ${{ github.event_name == 'push' && contains(toJson(github.event.commits.*.message), '#skip') == false }} # needs to be conditional on #skip comment
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-latest
     steps:
@@ -45,11 +45,11 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pokemonsapplication351" #Must be unique in Heroku
           heroku_email: "niko.tiaskorpi@gmail.com"
-          procfile: "web: npm run start-prod"
+          procfile: "web: npm start"
           healthcheck: "https://pokemonsapplication351.herokuapp.com/health"
 
   tag_release:
-    if: ${{!contains(github.event.commits, '#skip')}} && ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && contains(toJson(github.event.commits.*.message), '#skip') == false }}
     needs: [build]
     runs-on: ubuntu-20.04
     steps:
