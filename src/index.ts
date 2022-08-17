@@ -21,8 +21,10 @@ app.get('/api/ping', (_req, res) => {
 // eslint-disable-next-line @typescript-eslint/require-await
 app.use(express.static('./build/dist'));
 
-
-
+app.get('/api/healthcheck', (_req, res) => {
+    res.send('ok');
+});
+// MOOAODODODODO
 
 app.listen(PORT, () =>{
     console.log(`server started in port ${PORT}`);
