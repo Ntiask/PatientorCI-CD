@@ -46,7 +46,7 @@ jobs:
           heroku_app_name: "patientorapp351" #Must be unique in Heroku
           heroku_email: "niko.tiaskorpi@gmail.com"
           procfile: "web: npm start"
-          healthcheck: "https://patientorapp351.herokuapp.com//api/ping"
+          healthcheck: "https://patientorapp351.herokuapp.com/api/ping"
 
   tag_release:
     if: ${{ github.event_name == 'push' && contains(toJson(github.event.commits.*.message), '#skip') == false }}
