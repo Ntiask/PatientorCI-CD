@@ -43,10 +43,10 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "pokemonsapplication351" #Must be unique in Heroku
+          heroku_app_name: "patientorapp351" #Must be unique in Heroku
           heroku_email: "niko.tiaskorpi@gmail.com"
           procfile: "web: npm start"
-          healthcheck: "https://pokemonsapplication351.herokuapp.com/health"
+          healthcheck: "https://patientorapp351.herokuapp.com//api/ping"
 
   tag_release:
     if: ${{ github.event_name == 'push' && contains(toJson(github.event.commits.*.message), '#skip') == false }}
