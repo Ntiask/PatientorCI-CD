@@ -19,8 +19,7 @@
     "build": "tsc",
     "dev": "ts-node-dev ./src/index.ts",
     "eslint": "eslint --ext .ts .",
-    "server": "node build/src/index.js",
-    "start": "concurrently \"npm run server\" \"serve -s build\"",
+    "start": "node build/src/index.js",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run"
   },
